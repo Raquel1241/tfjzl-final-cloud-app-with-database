@@ -67,6 +67,24 @@ class Course(models.Model):
         return "Name: " + self.name + "," + \
                "Description: " + self.description
 
+# Question model
+class Question(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    question = models.CharField(max_length=300)
+    grade = models.IntegerField(default=0)
+
+    # method to calculate if the learner gets the score of the question
+    def is_get_score(self, selected_ids):
+        all_answers = self.choice_set.filter(is_correct=True).count()
+        selected_correct = self.choice_set.filter(is_correct=True, id__in=selected_ids).count()
+        if all_answers == selected_correct:
+            return True
+        else:
+            return False
+
+    def __str__(self):
+        return "Question: " + self.question + "," + \
+                "Grade: " + self.grade
 
 # Lesson model
 class Lesson(models.Model):

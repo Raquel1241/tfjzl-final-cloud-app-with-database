@@ -26,8 +26,8 @@ class LessonAdmin(admin.ModelAdmin):
     list_display = ['title']
 
 
-class QuestionAdmin(admin.ModelAdmin):
-    inlines = [QuestionInline]
+class QuestionAdmin(admin.ModelAdmin):    
+    inlines = [ChoiceInline]
     list_display = ("question")
 
 
@@ -35,6 +35,6 @@ admin.site.register(Course, CourseAdmin)
 admin.site.register(Lesson, LessonAdmin)
 admin.site.register(Instructor)
 admin.site.register(Learner)
-admin.site.register(Questio, QuestionAdmin)
+admin.site.register(Question, QuestionAdmin)
 admin.site.register(Choice)
 admin.site.register(Submission)

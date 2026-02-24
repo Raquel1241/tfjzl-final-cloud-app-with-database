@@ -82,9 +82,9 @@ class Question(models.Model):
         else:
             return False
 
-    def __str__(self):
-        return "Question: " + self.question + "," + \
-                "Grade: " + self.grade
+    # def __str__(self):
+    #     return "Question: " + self.content + "," + \
+    #             "Grade: " + self.grade
 
 # Lesson model
 class Lesson(models.Model):

@@ -70,7 +70,7 @@ class Course(models.Model):
 # Question model
 class Question(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    question = models.CharField(max_length=300)
+    content = models.CharField(max_length=300)
     grade = models.IntegerField(default=0)
 
     # method to calculate if the learner gets the score of the question
